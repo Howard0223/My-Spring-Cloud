@@ -2,6 +2,7 @@ package tw.com.myproject.springcloud.controller;
 
 import javax.annotation.Resource;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -28,4 +29,16 @@ public class OrderController {
 	public CommonResult get(@PathVariable Long id){
 		return restTemplate.getForObject(PAYMENT_URL + "/get/" + id, CommonResult.class);
 	}
+	
+	@GetMapping(value = "/consumer/payment/getForEntity/{id}")
+    public CommonResult get2(@PathVariable("id") Long id) {
+        ResponseEntity<CommonResult> entity = restTemplate.getForEntity(PAYMENT_URL + "/get/" + id, CommonResult.class);
+        System.out.println("status code=" + entity.getStatusCode());
+        System.out.println("headers=" + entity.getHeaders());
+        if (entity.getStatusCode().is2xxSuccessful()) {
+            return entity.getBody();
+        } else {
+            return new CommonResult(404, "查找失败");
+        }
+    }
 }
