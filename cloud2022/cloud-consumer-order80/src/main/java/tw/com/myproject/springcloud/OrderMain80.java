@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.cloud.netflix.ribbon.RibbonClient;
 
-import tw.com.myproject.springcloud.myrule.MySelfRule;
+import tw.com.myproject.myrule.MySelfRule;
 
 @SpringBootApplication
 @EnableEurekaClient

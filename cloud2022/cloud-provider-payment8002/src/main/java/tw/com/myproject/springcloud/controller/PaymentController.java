@@ -42,4 +42,9 @@ public class PaymentController {
 			return new CommonResult<Payment>(400, THIS_PORT + "搜尋ID：" + id + "，查無資料");
 		}
 	}
+	
+	@GetMapping("/payment/lb")
+    public String getLoadBalancePort() {
+        return THIS_PORT;
+    }
 }
