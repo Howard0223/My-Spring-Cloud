@@ -6,7 +6,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.stereotype.Component;
 
-@Component
+
 public class MyLB implements LoadBalancer{
 	
 	private AtomicInteger atomicInteger = new AtomicInteger(0);
